@@ -33,7 +33,8 @@ export class AddTaskComponent {
     const newTask = <Task>{
       name: this.taskName,
       description: this.taskDescription,
-      status: Status.ToDo
+      status: Status.ToDo,
+      assignedTo:""
     };
     this.taskService.addTask(newTask)
       .subscribe(task => {

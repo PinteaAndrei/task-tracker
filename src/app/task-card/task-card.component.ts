@@ -34,8 +34,10 @@ export class TaskCardComponent {
    }
  
 
-  deleteTask(task) {
-    this.taskService.deleteTask(task.id);
+  deleteTask(task:Task) {
+    this.taskService.deleteTask(task.id).subscribe(() => {
+      this.taskService.getTasks();
+    });
   }
 }
 
