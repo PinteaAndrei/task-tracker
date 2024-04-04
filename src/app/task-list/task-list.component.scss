@@ -1,0 +1,28 @@
+.task-item {
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.task-actions button {
+    margin-right: 10px;
+    margin-top:5px;
+}
+
+.task-name {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.task-description{
+    margin-top:10px;
+}
+
+.task-status{
+    margin-top:10px;
+}
+
+.task-actions{
+    margin-top:10px;
+}
