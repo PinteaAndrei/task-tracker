@@ -17,7 +17,7 @@ import { Status } from '../status';
   providers: [TaskService]
 })
 export class TaskListComponent implements OnInit { 
-  tasks: Task[] = [];d
+  tasks: Task[] = [];
   filteredTasks: Task[] = []; 
 
   constructor(
@@ -45,8 +45,12 @@ export class TaskListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-       console.log('The dialog was closed');
-    });
+      if(result) {
+       this.taskService.editTask(task).subscribe(() => {
+        this.taskService.getTasks();
+       });
+      }
+     });
   }
 
   deleteTask(taskId: string): void {

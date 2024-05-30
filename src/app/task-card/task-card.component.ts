@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import { Task } from '../task';
-import { Input } from '@angular/core';
+import { Input, Output, EventEmitter } from '@angular/core';
 import { NgFor, CommonModule } from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { EditTaskComponent } from '../edit-task/edit-task.component';
 import { TaskService } from '../Services/task.service';
+import { emit } from 'process';
+
 
 
 @Component({
@@ -19,6 +21,7 @@ import { TaskService } from '../Services/task.service';
 })
 export class TaskCardComponent {
   @Input() task: Task;
+  @Output() taskDeleted: EventEmitter<void> = new EventEmitter();
 
   constructor(private taskService:TaskService, private dialog: MatDialog) {}
 
@@ -28,15 +31,18 @@ export class TaskCardComponent {
      });
  
      dialogRef.afterClosed().subscribe((result) => {
-       console.log('The dialog was closed');
-       this.taskService.editTask(task);
+      if(result) {
+       this.taskService.editTask(task).subscribe(() => {
+        this.taskService.getTasks();
+       });
+      }
      });
    }
  
 
-  deleteTask(task:Task) {
-    this.taskService.deleteTask(task.id).subscribe(() => {
-      this.taskService.getTasks();
+   deleteTask(taskId: string): void {
+    this.taskService.deleteTask(taskId).subscribe(() => {
+      this.taskDeleted.emit();
     });
   }
 }

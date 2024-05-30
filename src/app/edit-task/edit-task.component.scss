@@ -1,10 +1,54 @@
-#editTaskContent{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  #editTaskActions {
-    justify-content: end;
-  }
-  
+#editTaskContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 400px;
+  padding: 1rem;  
+  background: #f9f9f9;  
+  border-radius: 0.5rem;  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+  box-sizing: border-box;
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+  margin-bottom: 1rem;  
+}
+
+#editTaskActions {
+  display: flex;  
+  justify-content: flex-end;  
+  width: 100%;  
+  margin-top: 1rem; 
+ }
+
+.save-button {
+  background-color: #2a4bf7;
+  color: white !important;
+  border: none;
+  padding: 10px 20px;  
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;  
+}
+
+.save-button:hover {
+  background-color: #223cc6;
+  transform: translateY(-2px);  
+}
+
+.cancel-button {
+  background-color: #dc3545;  
+  color: white !important;
+  border: none;
+  padding: 10px 20px;  
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 1rem;  
+  transition: background-color 0.2s, transform 0.2s;  
+}
+
+.cancel-button:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);  
+}

@@ -10,9 +10,9 @@ import { Observable } from 'rxjs';
 export class TaskService {
   
 
-  private baseURL = "https://tasksapi20240226164535.azurewebsites.net/api/Tasks";
+  //private baseURL = "https://tasksapi20240226164535.azurewebsites.net/api/Tasks";
+  private baseURL = "http://localhost:5189/Task"
 
-  // Declare the httpOptions variable with headers
   readonly httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
